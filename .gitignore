@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+venv/
+.venv/
+threatdna_ai.db
+
+# Node
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+
+# Uploads
+uploads/*.csv
+!uploads/sample_datasets/synthetic_ids_research_dataset.csv
+
+# System
+.DS_Store
+Thumbs.db

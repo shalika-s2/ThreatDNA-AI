@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #332000;
+  }
+
+  body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'JetBrains Mono', 'Consolas', 'Fira Code', monospace;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  /* Custom Bloomberg Terminal Amber Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+    border-left: 1px solid #221500;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #553500;
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF9900;
+  }
+}
+
+/* Bloomberg Terminal Precision Grid Background */
+.terminal-grid {
+  background-color: #000000;
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 153, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 153, 0, 0.04) 1px, transparent 1px);
+}
+
+.cyber-grid {
+  background-color: #000000;
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 153, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 153, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Terminal Card & Widget Styling */
+.terminal-card, .cyber-card {
+  background: #080808;
+  border: 1px solid #332000;
+  border-radius: 0px;
+  position: relative;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.terminal-card:hover, .cyber-card:hover {
+  border-color: #664000;
+}
+
+.terminal-card-amber {
+  background: #080808;
+  border: 1px solid #FF9900;
+}
+
+.terminal-header-strip {
+  background: #FF9900;
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* Glowing text and borders */
+.text-glow-amber {
+  text-shadow: 0 0 8px rgba(255, 153, 0, 0.6);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 8px rgba(0, 230, 118, 0.6);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 8px rgba(255, 82, 82, 0.6);
+}
+
+.border-glow-amber {
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.25);
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', 'Consolas', 'Fira Code', monospace;
+}
+
+/* Retro CRT scanline effect (subtle) */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Retro Window Control Buttons */
+.term-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 11px;
+  padding: 0 4px;
+  height: 18px;
+  min-width: 18px;
+  border: 1px solid #442a00;
+  background: #110b00;
+  color: #FF9900;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s;
+}
+
+.term-btn:hover {
+  background: #FF9900;
+  color: #000000;
+  border-color: #FF9900;
+}
+
+/* Terminal Input Field */
+.terminal-input {
+  background-color: #050505;
+  border: 1px solid #332000;
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.terminal-input:focus {
+  border-color: #FF9900;
+  outline: none;
+  box-shadow: 0 0 6px rgba(255, 153, 0, 0.3);
+}
+
+/* Terminal Ticker Animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker-scroll {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-scroll 35s linear infinite;
+}
+.animate-ticker-scroll:hover {
+  animation-play-state: paused;
+}
