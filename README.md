@@ -103,7 +103,7 @@ ThreatDNA-AI/
 │   │   │   └── common/           # MetricCard, Badges, Header, Sidebar, Modal, ScoreGauge
 │   │   ├── context/              # AuthContext (JWT state)
 │   │   ├── layouts/              # DashboardLayout (Master SOC layout)
-│   │   ├── pages/                # Login, Dashboard, Alerts, Analysis, Datasets, Experiments, Metrics, Reports, Settings
+│   │   ├── pages/                # Login, Dashboard, Alerts, Analysis, LiveNetwork, Datasets, Experiments, Metrics, Reports, Settings
 │   │   ├── services/             # Axios REST API client
 │   │   ├── types/                # TypeScript data interfaces
 │   │   ├── App.tsx               # Routes & protected route guards
@@ -119,8 +119,8 @@ ThreatDNA-AI/
 │   │   ├── models/               # SQLAlchemy models (User, Alert, AIAnalysis, Dataset, Experiment, Metric)
 │   │   ├── schemas/              # Pydantic request/response schemas
 │   │   ├── prompts/              # Strict LLM prompt templates (no chain-of-thought leakage)
-│   │   ├── services/             # LLMService, DatasetService, ExperimentService, MetricsService
-│   │   ├── routers/              # Auth, Dashboard, Alerts, Analyses, Datasets, Experiments, Metrics, Reports
+│   │   ├── services/             # LLMService, NetworkService, DatasetService, ExperimentService, MetricsService
+│   │   ├── routers/              # Auth, Dashboard, Alerts, Analyses, Datasets, Experiments, Metrics, Reports, Network
 │   │   ├── utils/                # Seed script with realistic synthetic demo alerts
 │   │   └── main.py               # FastAPI application entry point
 │   ├── tests/                    # Automated pytest test suite
@@ -356,4 +356,5 @@ npm run build
 ## License
 ThreatDNA-AI is developed for Academic Cybersecurity Research and Educational Evaluation.
 #   T h r e a t D N A - A I - W a l k t h r o u g h - V e r i f i c a t i o n - R e p o r t  
+ #   T h r e a t D N A - A I  
  
