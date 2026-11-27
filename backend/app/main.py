@@ -13,7 +13,8 @@ from app.routers import (
     datasets,
     experiments,
     metrics,
-    reports
+    reports,
+    network
 )
 
 # Logging configuration
@@ -69,6 +70,7 @@ app.include_router(datasets.router, prefix=settings.API_V1_STR)
 app.include_router(experiments.router, prefix=settings.API_V1_STR)
 app.include_router(metrics.router, prefix=settings.API_V1_STR)
 app.include_router(reports.router, prefix=settings.API_V1_STR)
+app.include_router(network.router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 def root():

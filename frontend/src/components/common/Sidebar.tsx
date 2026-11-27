@@ -35,7 +35,8 @@ export const Sidebar: React.FC = () => {
     { code: '05', label: 'DATASETS', path: '/datasets', icon: Database },
     { code: '06', label: 'TELEMETRY', path: '/metrics', icon: BarChart3 },
     { code: '07', label: 'SOC REPORTS', path: '/reports', icon: FileText },
-    { code: '08', label: 'SYS CONFIG', path: '/settings', icon: Settings },
+    { code: '08', label: 'LIVE NETWORK', path: '/network', icon: Activity },
+    { code: '09', label: 'SYS CONFIG', path: '/settings', icon: Settings },
   ];
 
   return (
@@ -61,7 +62,7 @@ export const Sidebar: React.FC = () => {
         {/* Navigation Command Header */}
         <div className="px-3 pt-3 pb-1 text-[10px] text-textMuted uppercase tracking-widest flex items-center justify-between">
           <span>&gt; DIRECTORY_SYS</span>
-          <span className="text-terminalAmber">8 NODES</span>
+          <span className="text-terminalAmber">9 NODES</span>
         </div>
 
         {/* Navigation links */}

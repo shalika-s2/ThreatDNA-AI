@@ -12,7 +12,11 @@ import {
   Metric,
   TraditionalComparisonItem,
   ExperimentReport,
-  DashboardSummary
+  DashboardSummary,
+  NetworkInterface,
+  NetworkPacket,
+  NetworkConnection,
+  NetworkStatus
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001/api';
@@ -223,3 +227,40 @@ export const reportsApi = {
     return `${API_BASE_URL}/reports/${experimentId}/export-pdf`;
   },
 };
+
+// Live Network Monitor API
+export const networkApi = {
+  getInterfaces: async (): Promise<NetworkInterface[]> => {
+    const response = await apiClient.get<NetworkInterface[]>('/network/interfaces');
+    return response.data;
+  },
+  startCapture: async (params?: { interface?: string; auto_triage?: boolean }): Promise<any> => {
+    const response = await apiClient.post('/network/start', params || {});
+    return response.data;
+  },
+  stopCapture: async (): Promise<any> => {
+    const response = await apiClient.post('/network/stop');
+    return response.data;
+  },
+  getStatus: async (): Promise<NetworkStatus> => {
+    const response = await apiClient.get<NetworkStatus>('/network/status');
+    return response.data;
+  },
+  getPackets: async (params?: { limit?: number; protocol?: string; threats_only?: boolean }): Promise<{ count: number; packets: NetworkPacket[] }> => {
+    const response = await apiClient.get('/network/packets', { params });
+    return response.data;
+  },
+  getConnections: async (limit = 50): Promise<{ count: number; connections: NetworkConnection[] }> => {
+    const response = await apiClient.get('/network/connections', { params: { limit } });
+    return response.data;
+  },
+  clearBuffer: async (): Promise<any> => {
+    const response = await apiClient.post('/network/clear');
+    return response.data;
+  },
+  analyzeEvent: async (eventData: Partial<NetworkPacket> & { save_as_alert?: boolean }): Promise<any> => {
+    const response = await apiClient.post('/network/analyze-event', eventData);
+    return response.data;
+  }
+};
+

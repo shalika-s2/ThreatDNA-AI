@@ -11,6 +11,7 @@ import { ExperimentsPage } from './pages/ExperimentsPage';
 import { MetricsPage } from './pages/MetricsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { LiveNetworkPage } from './pages/LiveNetworkPage';
 
 // Protected Route Component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -55,6 +56,7 @@ export const App: React.FC = () => {
             <Route path="experiments" element={<ExperimentsPage />} />
             <Route path="metrics" element={<MetricsPage />} />
             <Route path="reports" element={<ReportsPage />} />
+            <Route path="network" element={<LiveNetworkPage />} />
             <Route path="settings" element={<SettingsPage />} />
           </Route>
 

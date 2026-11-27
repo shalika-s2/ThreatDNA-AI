@@ -185,3 +185,61 @@ export interface DashboardSummary {
   };
   confidence_distribution: { range: string; count: number }[];
 }
+
+export interface NetworkInterface {
+  name: string;
+  ipv4: string;
+  ipv6: string;
+  mac: string;
+  is_up: boolean;
+  speed_mbps: number;
+  is_active: boolean;
+}
+
+export interface NetworkPacket {
+  id: string;
+  timestamp: string;
+  source_ip: string;
+  source_port: number;
+  destination_ip: string;
+  destination_port: number;
+  protocol: string;
+  length: number;
+  flags: string;
+  info: string;
+  is_threat: boolean;
+  threat_type?: string;
+  severity?: 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
+  payload_hex?: string;
+}
+
+export interface NetworkConnection {
+  fd?: number;
+  family: string;
+  protocol: string;
+  local_address: string;
+  remote_address: string;
+  status: string;
+  pid?: number;
+  process_name: string;
+  is_suspicious: boolean;
+  threat_note?: string;
+}
+
+export interface NetworkStatus {
+  is_capturing: boolean;
+  interface?: string;
+  auto_triage: boolean;
+  elapsed_seconds: number;
+  total_packets: number;
+  total_bytes: number;
+  packets_per_sec: number;
+  bandwidth_kbps: number;
+  threats_detected: number;
+  protocol_counts: Record<string, number>;
+  system_bytes_sent: number;
+  system_bytes_recv: number;
+  buffered_packets_count: number;
+  buffered_threats_count: number;
+}
+
